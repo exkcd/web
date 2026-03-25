@@ -8,7 +8,7 @@ export function Avatar({ id, alt, w, h }: { id: string; alt: string; w: number; 
       width={`${w}`}
       height={`${h}`}
       className="rounded-[50%] overflow-hidden"
-      loading="lazy"
+      loading="eager"
     />
   );
 }

@@ -4,7 +4,8 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { Magnetic } from "@/components/ui/magnetic";
 import Link from "next/link";
 import { AnimatedBackground } from "@/components/ui/animated-background";
-import { PROJECTS, WORK_EXPERIENCE, EMAIL, SOCIAL_LINKS } from "@/data/info";
+import { Badge } from "@/components/ui/badge";
+import { PROJECTS, WORK_EXPERIENCE, SOCIAL_LINKS, SKILLS, TOOLS } from "@/data/info";
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -111,14 +112,27 @@ export default function Resume() {
         </div>
       </motion.section>
 
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION} className="space-y-0">
+        <h3 className="mb-3 text-lg font-medium">Languages</h3>
+        <div className="flex items-center justify-start space-x-1">
+          {SKILLS.map((skill) => (
+            <Badge variant={"outline"} key={skill}>
+              {skill}
+            </Badge>
+          ))}
+        </div>
+        <h3 className="mt-5 mb-3 text-lg font-medium">Tools</h3>
+        <div className="flex items-center justify-start space-x-1">
+          {TOOLS.map((skill) => (
+            <Badge variant={"outline"} key={skill}>
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </motion.section>
+
       <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
-        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{" "}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-        </p>
         <div className="flex items-center justify-start space-x-3">
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>

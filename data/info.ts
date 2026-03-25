@@ -19,9 +19,9 @@ type SocialLink = {
   link: string;
 };
 
-export const SKILLS = ["Javascript", "Java", ""];
+export const SKILLS = ["Javascript/Typescript", "Java", "Python", "C/C++", "LaTex", "SQL"];
 
-export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "scikit-learn", "matplotlib", "Latex"];
+export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "scikit-learn", "matplotlib", "Docker"];
 
 export const PROJECTS: Project[] = [
   {
@@ -57,12 +57,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    label: "Github",
-    link: "https://github.com/exkcd",
+    label: "Email",
+    link: "mailto:reyhstone@gmail.com",
   },
   {
-    label: "Bluesky",
-    link: "https://bsky.app/profile/exkcd.com",
+    label: "Github",
+    link: "https://github.com/exkcd",
   },
   {
     label: "LinkedIn",
@@ -73,8 +73,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     link: "/docs/resume.pdf",
   },
 ];
-
-export const EMAIL = "reyhstone@gmail.com";
 
 export const NAME = "Rey Stone";
 
