@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "@wooorm/starry-night/style/light";
+@import "@wooorm/starry-night/style/dark";
+@import "tw-animate-css";
+@plugin '@tailwindcss/typography';
+@custom-variant dark (&:is(.dark *));
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.pl-c {
+    color: inherit;
+}
+
+.prose pre code {
+    font-size: 0.8rem;
+}
+
+ul,
+li {
+    padding: 0;
+}
+
+/* Container — fully transparent, no card */
+.toc-container {
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+/* ─── Aside / sidenote float layout ───────────────────────────────────────── */
+
+:root {
+    --aside-width: 14rem;
+    --aside-gap: 4rem;
+}
+
+/* ── Narrow (default): hide floated asides, show footnote section ── */
+
+.aside-float {
+    display: none;
+}
+
+.aside-ref-wide {
+    display: none;
+}
+
+.aside-ref-narrow {
+    display: inline;
+}
+
+.aside-footnotes {
+    display: block;
+}
+
+/* ── Wide (2xl / 1536px+): show floated asides, hide footnote section ── */
+
+@media (min-width: 1280px) {
+    .aside-float {
+        display: block;
+        float: right;
+        clear: right;
+        width: var(--aside-width);
+        margin-left: var(--aside-gap);
+        margin-right: calc(-1 * (var(--aside-width) + var(--aside-gap)));
+        margin-top: 0.25rem;
+        margin-bottom: 1rem;
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .aside-ref-wide {
+        display: inline;
+    }
+
+    .aside-ref-narrow {
+        display: none;
+    }
+
+    .aside-footnotes {
+        display: none;
+    }
+}
