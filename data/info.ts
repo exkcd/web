@@ -19,6 +19,10 @@ type SocialLink = {
   link: string;
 };
 
+export const SKILLS = ["Javascript", "Java", ""];
+
+export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "scikit-learn", "matplotlib", "Latex"];
+
 export const PROJECTS: Project[] = [
   {
     name: "Predicting COVID-19 Risk",

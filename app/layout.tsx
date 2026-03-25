@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable)} data-scroll-behavior="smooth">
+    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)} data-scroll-behavior="smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-zinc-50 tracking-tight antialiased dark:bg-zinc-950`}
       >

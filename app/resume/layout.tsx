@@ -8,7 +8,7 @@ export default function ResumeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col pt-20 px-8">
+    <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col pt-20 px-8">
       <Nav />
       <Header />
       {children}
