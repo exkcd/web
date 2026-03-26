@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ProjectList } from "@/components/project-list";
 import { Aside, Ref, Footnotes } from "@/components/layout/aside";
 import { AsideProvider } from "@/components/layout/aside-context";
+import { TooltipEmail } from "@/components/tooltip-email";
 
 const Cover = ({ src, alt, caption }: { src: string; alt: string; caption: string }) => (
   <figure>
@@ -30,6 +31,7 @@ export const mdxComponents: MDXComponents = {
   Aside,
   Ref,
   Footnotes,
+  TooltipEmail,
   a: ({ href, children, ...props }: ComponentPropsWithoutRef<"a">) => (
     <Link
       href={href ?? "#"}

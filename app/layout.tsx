@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -39,7 +40,9 @@ export default function RootLayout({
       >
         <div className="pointer-events-none fixed left-0 top-0 z-10 h-12 w-full bg-gray-100 to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)] dark:bg-zinc-950" />
         <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
-          <div className="relative font-(family-name:--font-inter-tight)">{children}</div>
+          <TooltipProvider>
+            <div className="relative font-(family-name:--font-inter-tight)">{children}</div>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

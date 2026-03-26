@@ -57,8 +57,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    label: "Email",
-    link: "mailto:reyhstone@gmail.com",
+    label: "PDF",
+    link: "/docs/resume.pdf",
   },
   {
     label: "Github",
@@ -68,12 +68,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: "LinkedIn",
     link: "https://www.linkedin.com/in/reyhstone",
   },
-  {
-    label: "PDF",
-    link: "/docs/resume.pdf",
-  },
 ];
 
 export const NAME = "Rey Stone";
-
+export const EMAIL = "reyhstone@gmail.com";
 export const ROLE = "Software Engineer";

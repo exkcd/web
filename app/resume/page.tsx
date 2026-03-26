@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { Badge } from "@/components/ui/badge";
 import { PROJECTS, WORK_EXPERIENCE, SOCIAL_LINKS, SKILLS, TOOLS } from "@/data/info";
+import { TooltipEmail } from "@/components/tooltip-email";
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -133,6 +134,11 @@ export default function Resume() {
 
       <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
+        <div>
+          <p className="mb-5 text-zinc-600 dark:text-zinc-400">
+            Feel free to contact me at: <TooltipEmail />
+          </p>
+        </div>
         <div className="flex items-center justify-start space-x-3">
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>

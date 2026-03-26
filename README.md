@@ -10,6 +10,8 @@ My website design was inspired by these websites:
 
 ## TODO
 
-- [x] Fix table of contents for projects
-- [ ] Add skills to resume doc
+- [x] ~~Fix table of contents for projects~~
+- [x] ~~Add skills to resume doc~~
 - [ ] Add class list to resume
+- [ ] Object oriented design principles post
+- [x] ~~Create copy-able email~~
