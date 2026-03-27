@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Othello",
-    description: "Othello/reversi using OOP principles",
+    description: "Othello/Reversi using OOP design principles",
     link: "https://github.com/exkcd/csci-4448-final-project",
     id: "p2",
   },
