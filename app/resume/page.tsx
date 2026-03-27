@@ -41,6 +41,8 @@ function MagneticSocialLink({ children, link }: { children: React.ReactNode; lin
       <Link
         href={link}
         className="group relative inline-flex shrink-0 items-center gap-px rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {children}
         <ArrowUpRight size={15} />
@@ -99,10 +101,10 @@ export default function Resume() {
                   <div className="relative flex w-full flex-row justify-between">
                     <div>
                       <h4 className="font-normal dark:text-zinc-100">{job.company}</h4>
-                      <p className="text-zinc-500 dark:text-zinc-400 text-sm">{job.title}</p>
+                      <p className="text-zinc-500 text-sm">{job.title}</p>
                     </div>
                     <div>
-                      <span className="text-sm text-zinc-500 dark:text-zinc-400 shrink-0 ml-4">
+                      <span className="text-sm text-zinc-500 shrink-0 ml-4">
                         {job.start} &ndash; {job.end}
                       </span>
                     </div>
@@ -118,12 +120,12 @@ export default function Resume() {
         <h3 className="mb-3 text-lg font-medium">Education</h3>
         <div className="flex flex-col space-y-2">
           {EDUCATION.map((uni) => (
-            <Card className="relative h-full w-full bg-zinc-50 dark:bg-zinc-950 ring-0 rounded-none" key={uni.id}>
+            <Card className="relative h-full w-full bg-transparent ring-0 rounded-none" key={uni.id}>
               <CardHeader className="p-0">
                 <CardTitle>{uni.name}</CardTitle>
                 <CardDescription>{uni.degree}</CardDescription>
 
-                <CardAction className="text-zinc-600 dark:text-zinc-400">
+                <CardAction className="text-zinc-500">
                   {uni.start} &ndash; {uni.end}
                 </CardAction>
               </CardHeader>
