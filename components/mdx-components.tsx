@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ComponentPropsWithoutRef } from "react";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import { ProjectList } from "@/components/project-list";
 import { Aside, Ref, Footnotes } from "@/components/layout/aside";
 import { AsideProvider } from "@/components/layout/aside-context";
 import { TooltipEmail } from "@/components/tooltip-email";
@@ -25,7 +24,6 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => <AsideProvider>
 
 export const mdxComponents: MDXComponents = {
   wrapper: Wrapper,
-  ProjectList,
   Cover,
   Img,
   Aside,

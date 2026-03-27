@@ -19,6 +19,16 @@ type SocialLink = {
   link: string;
 };
 
+type Education = {
+  name: string;
+  degree: string;
+  start: string;
+  end: string;
+  courses: Array<string>;
+  gpa: string;
+  id: string;
+};
+
 export const SKILLS = ["Javascript/Typescript", "Java", "Python", "C/C++", "LaTex", "SQL"];
 
 export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "scikit-learn", "matplotlib", "Docker"];
@@ -26,21 +36,15 @@ export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "sc
 export const PROJECTS: Project[] = [
   {
     name: "Predicting COVID-19 Risk",
-    description: "random forests and logistical regression",
+    description: "Random forests and logistical regression",
     link: "https://github.com/exkcd/csci-4622-final-project",
     id: "p1",
   },
   {
     name: "Othello",
-    description: "othello/reversi in Java using OOP principles",
+    description: "Othello/reversi using OOP principles",
     link: "https://github.com/exkcd/csci-4448-final-project",
     id: "p2",
-  },
-  {
-    name: "Mancala",
-    description: "utilizing basic AI algorithms to play Mancala",
-    link: "/mancala-vs-ai",
-    id: "p3",
   },
 ];
 
@@ -67,6 +71,23 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: "LinkedIn",
     link: "https://www.linkedin.com/in/reyhstone",
+  },
+];
+
+export const EDUCATION: Education[] = [
+  {
+    name: "University of Colorado Boulder",
+    degree: "B.A in Computer Science, Minor in Philosophy",
+    start: "08/2023",
+    end: "12/2025",
+    courses: [
+      "Object Oriented Analysis and Design",
+      "Machine Learning",
+      "Algorithms",
+      "Principles of Programming Languages",
+    ],
+    gpa: "3.8",
+    id: "ed1",
   },
 ];
 

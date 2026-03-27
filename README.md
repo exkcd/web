@@ -12,6 +12,9 @@ My website design was inspired by these websites:
 
 - [x] ~~Fix table of contents for projects~~
 - [x] ~~Add skills to resume doc~~
-- [ ] Add class list to resume
-- [ ] Object oriented design principles post
 - [x] ~~Create copy-able email~~
+- [x] ~~Add education section to resume~~
+  - [x] ~~Courses list~~
+- [x] ~~Redo project section~~
+  - [ ] Object oriented design principles post
+- [ ] Create photo collage
