@@ -19,7 +19,6 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   const post = getPostBySlug(slug);
 
   const toc = await getTableOfContents(post.content);
-
   const rehypePlugins = [rehypeSlug, rehypeStarryNight, remarkGfm];
 
   return (
