@@ -1,6 +1,8 @@
 import { mdxComponents } from "@/components/mdx-components";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { Toc } from "@/components/layout/toc";
+import { getTableOfContents } from "@/lib/toc";
 import rehypeSlug from "rehype-slug";
 import rehypeStarryNight from "rehype-starry-night";
 import remarkGfm from "remark-gfm";
@@ -15,6 +17,8 @@ export async function generateStaticParams() {
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+
+  const toc = await getTableOfContents(post.content);
 
   const rehypePlugins = [rehypeSlug, rehypeStarryNight, remarkGfm];
 
@@ -35,6 +39,9 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           />
         </div>
       </article>
+      <div className="fixed left-24 top-48 hidden xl:block">
+        <Toc toc={toc} title={post.title} />
+      </div>
     </div>
   );
 }
