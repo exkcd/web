@@ -3,19 +3,19 @@ import { ComponentPropsWithoutRef } from "react";
 import type { MDXComponents } from "mdx/types";
 import { Aside, Ref, Footnotes } from "@/components/layout/aside";
 import { AsideProvider } from "@/components/layout/aside-context";
-import { TooltipEmail } from "@/components/tooltip-email";
+import { TooltipEmail } from "@/components/layout/tooltip-email";
 import { CustomLink } from "@/components/ui/custom-link";
 
 const Cover = ({ src, alt, caption }: { src: string; alt: string; caption: string }) => (
   <figure>
-    <Image src={src} alt={alt} width={1200} height={630} className="rounded-xl" />
+    <Image src={src} alt={alt} width={1200} height={630} className="rounded-xl" loading="eager" />
     <figcaption className="text-center">{caption}</figcaption>
   </figure>
 );
 
 const Img = ({ src, alt, caption }: { src: string; alt: string; caption: string }) => (
   <figure>
-    <Image src={src} alt={alt} width={1920} height={1080} className="rounded-xl" />
+    <Image src={src} alt={alt} width={1920} height={1080} className="rounded-xl" loading="lazy" />
     <figcaption className="text-center">{caption}</figcaption>
   </figure>
 );
