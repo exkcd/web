@@ -43,7 +43,7 @@ export default function RootLayout({
         <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
           <TooltipProvider>
             <div className="relative font-(family-name:--font-inter-tight)">
-              <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col pt-20 px-8">
+              <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col py-20 px-8">
                 <Nav />
                 {children}
                 <Footer />
