@@ -5,7 +5,7 @@ export default async function BlogIndex() {
   const posts = getAllPosts();
 
   return (
-    <main className="mx-auto flex w-full flex-1 flex-col dark:text-white">
+    <main className="mx-auto flex w-full flex-1 flex-col dark:text-white pt-20">
       <h1 className="font-semibold text-xl mb-8">Writing</h1>
       <ul className="p-0">
         {posts.map((post) => (

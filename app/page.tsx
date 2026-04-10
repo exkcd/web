@@ -10,10 +10,10 @@ export default async function Home() {
   const source = fs.readFileSync(filePath, "utf-8");
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-8 pt-20">
+    <div>
       <Header />
       <MDXRemote source={source} components={mdxComponents} />
       <Footer />
-    </main>
+    </div>
   );
 }

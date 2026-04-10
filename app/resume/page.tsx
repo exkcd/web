@@ -15,6 +15,8 @@ import { PROJECTS, SKILLS, SOCIAL_LINKS, TOOLS, WORK_EXPERIENCE, EDUCATION } fro
 import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Header } from "@/components/layout/header";
+import { Nav } from "@/components/layout/nav";
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -54,6 +56,7 @@ function MagneticSocialLink({ children, link }: { children: React.ReactNode; lin
 export default function Resume() {
   return (
     <motion.main className="mb-16 space-y-8" variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
+      <Header />
       <p className="text-zinc-600 dark:text-zinc-400">
         Recent graduate of computer science at the University of Colorado Boulder. I am interested in data science,
         UX/UI design, information visualization, and machine learning.
