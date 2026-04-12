@@ -22,7 +22,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   const rehypePlugins = [rehypeSlug, rehypeStarryNight, remarkGfm];
 
   return (
-    <div className="pt-20 prose prose-gray dark:prose-invert prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium">
+    <div className="prose prose-gray dark:prose-invert prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium">
       <article>
         <h1 className="mb-0 text-zinc-800 dark:text-zinc-300">{post.title}</h1>
         <time className="text-zinc-400 dark:text-zinc-600 text-sm">{post.date}</time>
@@ -38,7 +38,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           />
         </div>
       </article>
-      <div className="fixed left-24 top-40 hidden xl:block">
+      <div className="fixed left-24 top-48 hidden xl:block">
         <Toc toc={toc} title={post.title} />
       </div>
     </div>
