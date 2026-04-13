@@ -1,5 +1,9 @@
 "use client";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useState } from "react";
 import { EMAIL } from "@/data/info";
 
@@ -29,7 +33,13 @@ export function TooltipEmail() {
           </button>
         }
       />
-      <TooltipContent>{copied ? "Copied!" : "Copy"}</TooltipContent>
+      <TooltipContent
+        className={
+          " bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-100"
+        }
+      >
+        {copied ? "Copied!" : "Copy"}
+      </TooltipContent>
     </Tooltip>
   );
 }

@@ -56,7 +56,7 @@ export function getContentBySlug(type: ContentType, slug: string): ContentFull {
     date: new Date(
       date.getUTCFullYear(),
       date.getUTCMonth(),
-      date.getUTCDate()
+      date.getUTCDate(),
     ).toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",

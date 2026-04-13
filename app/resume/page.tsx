@@ -11,12 +11,19 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Magnetic } from "@/components/ui/magnetic";
-import { PROJECTS, SKILLS, SOCIAL_LINKS, TOOLS, WORK_EXPERIENCE, EDUCATION } from "@/data/info";
+import {
+  PROJECTS,
+  SKILLS,
+  SOCIAL_LINKS,
+  TOOLS,
+  WORK_EXPERIENCE,
+  EDUCATION,
+} from "@/data/info";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
-import { Nav } from "@/components/layout/nav";
+import { NAME, ROLE } from "@/data/info";
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -37,7 +44,13 @@ const TRANSITION_SECTION = {
   duration: 0.3,
 };
 
-function MagneticSocialLink({ children, link }: { children: React.ReactNode; link: string }) {
+function MagneticSocialLink({
+  children,
+  link,
+}: {
+  children: React.ReactNode;
+  link: string;
+}) {
   return (
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <Link
@@ -55,17 +68,32 @@ function MagneticSocialLink({ children, link }: { children: React.ReactNode; lin
 
 export default function Resume() {
   return (
-    <motion.main className="mb-16 space-y-8" variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
-      <Header />
+    <motion.main
+      className="mb-16 space-y-8"
+      variants={VARIANTS_CONTAINER}
+      initial="hidden"
+      animate="visible"
+    >
+      <Header title={NAME} description={ROLE} />
       <p className="text-zinc-600 dark:text-zinc-400">
-        Recent graduate of computer science at the University of Colorado Boulder. I am interested in data science,
-        UX/UI design, information visualization, and machine learning.
+        Recent graduate of computer science at the University of Colorado
+        Boulder. <br /> I am interested in data science, UX/UI design,
+        information visualization, and machine learning.
       </p>
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
         <h3 className="mb-3 text-lg font-medium">Selected Projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
-            <Link key={project.id} href={project.link} data-id={project.id} target="_blank" rel="noopener noreferrer">
+            <Link
+              key={project.id}
+              href={project.link}
+              data-id={project.id}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Card className="w-full max-w-sm bg-zinc-50 dark:bg-zinc-950">
                 <CardHeader>
                   <CardTitle>{project.name}</CardTitle>
@@ -79,7 +107,10 @@ export default function Resume() {
           ))}
         </div>
       </motion.section>
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
         <h3 className="mb-3 text-lg font-medium">Experience</h3>
         <div className="flex flex-col space-y-2">
           <AnimatedBackground
@@ -103,7 +134,9 @@ export default function Resume() {
                 <div className="relative h-full w-full">
                   <div className="relative flex w-full flex-row justify-between">
                     <div>
-                      <h4 className="font-normal dark:text-zinc-100">{job.company}</h4>
+                      <h4 className="font-normal dark:text-zinc-100">
+                        {job.company}
+                      </h4>
                       <p className="text-zinc-500 text-sm">{job.title}</p>
                     </div>
                     <div>
@@ -119,11 +152,17 @@ export default function Resume() {
         </div>
       </motion.section>
 
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
         <h3 className="mb-3 text-lg font-medium">Education</h3>
         <div className="flex flex-col space-y-2">
           {EDUCATION.map((uni) => (
-            <Card className="relative h-full w-full bg-transparent ring-0 rounded-none" key={uni.id}>
+            <Card
+              className="relative h-full w-full bg-transparent ring-0 rounded-none"
+              key={uni.id}
+            >
               <CardHeader className="p-0">
                 <CardTitle>{uni.name}</CardTitle>
                 <CardDescription>{uni.degree}</CardDescription>
@@ -137,13 +176,19 @@ export default function Resume() {
                   &bull; {course}
                 </CardContent>
               ))}
-              <CardFooter className="text-zinc-600 dark:text-zinc-400 p-0 border-t-0">GPA: {uni.gpa}</CardFooter>
+              <CardFooter className="text-zinc-600 dark:text-zinc-400 p-0 border-t-0">
+                GPA: {uni.gpa}
+              </CardFooter>
             </Card>
           ))}
         </div>
       </motion.section>
 
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION} className="space-y-0">
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+        className="space-y-0"
+      >
         <h3 className="mb-3 text-lg font-medium">Languages</h3>
         <div className="flex items-center justify-start space-x-1 mb-5 flex-wrap">
           {SKILLS.map((skill) => (
@@ -162,7 +207,10 @@ export default function Resume() {
         </div>
       </motion.section>
 
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
         <h3 className="mb-2 text-lg font-medium">Links</h3>
         <div className="flex items-center justify-start space-x-3">
           {SOCIAL_LINKS.map((link) => (

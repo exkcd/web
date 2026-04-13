@@ -29,9 +29,26 @@ type Education = {
   id: string;
 };
 
-export const SKILLS = ["Javascript/Typescript", "Java", "Python", "C/C++", "LaTex", "SQL"];
+export const SKILLS = [
+  "Javascript/Typescript",
+  "Java",
+  "Python",
+  "C/C++",
+  "LaTex",
+  "SQL",
+];
 
-export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "scikit-learn", "matplotlib", "Docker"];
+export const TOOLS = [
+  "React",
+  "Next.js",
+  "Pandas",
+  "Figma",
+  "Git",
+  "NumPy",
+  "scikit-learn",
+  "matplotlib",
+  "Docker",
+];
 
 export const PROJECTS: Project[] = [
   {

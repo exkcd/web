@@ -111,7 +111,9 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
             >
               {item.title}
             </a>
-            {item.items?.length ? <Tree tree={item} level={level + 1} activeItem={activeItem} /> : null}
+            {item.items?.length ? (
+              <Tree tree={item} level={level + 1} activeItem={activeItem} />
+            ) : null}
           </li>
         );
       })}

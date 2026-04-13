@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ContentMeta } from "@/lib/content";
+import { Header } from "./header";
 
 interface Props {
   posts: ContentMeta[];
   basePath: string;
   title: string;
+  description: string;
 }
 
-export function ContentList({ posts, basePath, title }: Props) {
+export function ContentList({ posts, basePath, title, description }: Props) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
   // Deduplicate and sort all tags across every post
-  const allTags = Array.from(
-    new Set(posts.flatMap((p) => p.tags))
-  ).sort();
+  const allTags = Array.from(new Set(posts.flatMap((p) => p.tags))).sort();
 
   const filtered = activeTag
     ? posts.filter((p) => p.tags.includes(activeTag))
@@ -24,7 +24,7 @@ export function ContentList({ posts, basePath, title }: Props) {
 
   return (
     <main className="mx-auto flex w-full flex-1 flex-col dark:text-white">
-      <h1 className="font-semibold text-zinc-800 dark:text-zinc-300 mb-2">{title}</h1>
+      <Header title={title} description={description} />
       {/* Tag filter bar */}
       {allTags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">

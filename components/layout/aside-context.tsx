@@ -27,10 +27,16 @@ export function AsideProvider({ children }: { children: ReactNode }) {
   }
 
   function getEntries(): AsideEntry[] {
-    return Array.from(mapRef.current.values()).sort((a, b) => a.number - b.number);
+    return Array.from(mapRef.current.values()).sort(
+      (a, b) => a.number - b.number,
+    );
   }
 
-  return <AsideContext.Provider value={{ register, getEntries }}>{children}</AsideContext.Provider>;
+  return (
+    <AsideContext.Provider value={{ register, getEntries }}>
+      {children}
+    </AsideContext.Provider>
+  );
 }
 
 export function useAside() {
