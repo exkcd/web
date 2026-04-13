@@ -1,0 +1,98 @@
+---
+title: 8 Patterns to Solve 80% of Leetcode
+date: 2026-02-03
+tags: [interview]
+---
+
+## Patterns
+ - Sliding window
+ - Subset
+ - Modified binary search
+ - Top k elements
+ - Binary tree DFS
+ - Topological sort
+ - Binary tree BFS
+ - Two pointer
+ 
+## Sliding Window Pattern
+
+**Used for:**
+- Processing series of data elements (list, string)
+- Window slides one step at a time until everything is scanned
+
+**How to use:**
+- Find a subset of elements that satisfies a given condition
+- Linear data structure
+- Longest, shortest substring
+- k-unique characters
+
+## Subset Pattern
+
+**Used for:**
+- Finding all possible combinations of elements from given set
+	- Repeats or no repeats
+- Permutations
+
+**How to use:**
+- Start with empty set, at each level, consider all ways to add new element
+	- Similar to BFS
+
+## Modified Binary Search Pattern
+
+**How to use:**
+- Divide search space in half every time
+- Understand core binary search algorithm
+	- Target not found
+	- Duplicate items
+- Find which half of an array to search i
+- n
+
+## Top K elements Pattern
+
+**Used for:**
+- Find k largest numbers in an array/list
+
+**How to use:**
+- Keep track of the k most important numbers
+- Example: Largest k element is most important
+- Use a heap to store
+
+## Binary Tree DFS Pattern
+
+- Helps you find nodes by going deep first in the tree and then backtracks to other nodes
+	- Recursive
+
+## Topological Sort Pattern
+
+**Used for:**
+- arrange elements in specific order
+- directed acyclic graph
+
+**How to use:**
+- use whenever you have a prerequisite chain
+- some parts of the code might rely on other modules, which depend on other modules
+- helps you find out which order you should write out your modules
+
+## Binary Tree BFS
+
+- Explores all nodes at one depth, and then goes deeper
+- Uses queue
+- Can process nodes one after another
+
+## Two pointer pattern
+
+**Used for:**
+- Iterate thru sorted array
+- Use two pointers to keep track of an index
+- Using these, we can make the algorithm more efficient
+
+**How to use:** 
+- Example: Two Sum Sorted
+- Pointer 1 starts at the beginning
+- Pointer 2 starts at the end
+- If the sum is less than or greater than, move pointers accordingly
+	- Works because it's sorted!
+
+---
+
+<RefLink href="https://www.youtube.com/watch?v=xo7XrRVxH8Y">I watched one YouTube video</RefLink>
