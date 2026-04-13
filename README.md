@@ -17,4 +17,6 @@ My website design was inspired by these websites:
   - [x] ~~Courses list~~
 - [x] ~~Redo project section~~
   - [ ] Object oriented design principles post
-- [ ] Create photo collage
+- [x] ~~Create photo collage~~ (technically did that on my *other* website)
+- [x] Add tagging system
+- [ ] Filter between posts, projects, and notes (when you have enough material)
