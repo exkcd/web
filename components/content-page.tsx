@@ -1,25 +1,20 @@
 import { mdxComponents } from "@/components/mdx-components";
-import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { getContentBySlug, ContentType } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Toc } from "@/components/layout/toc";
 import { getTableOfContents } from "@/lib/toc";
 import rehypeSlug from "rehype-slug";
-import rehypeStarryNight from "rehype-starry-night";
 import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
 
-export async function generateStaticParams() {
-  const entries = getAllPosts();
-  return entries.map((entry) => ({
-    slug: entry.slug,
-  }));
+interface Props {
+  type: ContentType;
+  slug: string;
 }
 
-export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-
+export async function ContentPage({ type, slug }: Props) {
+  const post = getContentBySlug(type, slug);
   const toc = await getTableOfContents(post.content);
-  const rehypePlugins = [rehypeSlug, rehypeStarryNight, remarkGfm];
 
   return (
     <div className="prose prose-gray dark:prose-invert prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium">
@@ -32,13 +27,17 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
             components={mdxComponents}
             options={{
               mdxOptions: {
-                rehypePlugins,
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [
+                  rehypeSlug,
+                  [rehypePrettyCode, { theme: "tokyo-night" }],
+                ],
               },
             }}
           />
         </div>
       </article>
-      <div className="fixed left-24 top-48 hidden xl:block">
+      <div className="fixed left-24 top-1/2 -translate-y-1/2 hidden xl:block">
         <Toc toc={toc} title={post.title} />
       </div>
     </div>

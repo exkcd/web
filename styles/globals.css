@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "@wooorm/starry-night/style/light";
-@import "@wooorm/starry-night/style/dark";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @plugin '@tailwindcss/typography';
