@@ -42,7 +42,7 @@ export const mdxComponents: MDXComponents = {
   RefLink,
   a: CustomLink,
   p: ({ children }: ComponentPropsWithoutRef<"p">) => (
-    <p className="mb-4 text-zinc-600 dark:text-zinc-400">{children}</p>
+    <p className="mb-2 text-zinc-600 dark:text-zinc-400">{children}</p>
   ),
   ul: ({ children }: ComponentPropsWithoutRef<"ul">) => (
     <ul className="paragraph mb-4 list-inside list-disc space-y-1">{children}</ul>

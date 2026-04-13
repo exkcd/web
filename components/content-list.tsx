@@ -24,8 +24,7 @@ export function ContentList({ posts, basePath, title }: Props) {
 
   return (
     <main className="mx-auto flex w-full flex-1 flex-col dark:text-white">
-      <h1 className="font-semibold text-xl mb-4">{title}</h1>
-
+      <h1 className="font-semibold text-zinc-800 dark:text-zinc-300 mb-2">{title}</h1>
       {/* Tag filter bar */}
       {allTags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">
@@ -36,7 +35,7 @@ export function ContentList({ posts, basePath, title }: Props) {
               className={`text-xs px-2 py-1 rounded-full transition-colors duration-200 ${
                 activeTag === tag
                   ? "bg-zinc-800 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900"
-                  : "bg-zinc-100 text-zinc-500 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
+                  : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
               }`}
             >
               {tag}
