@@ -71,7 +71,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: "Quality Assurance Engineer",
     start: "04/2024",
     end: "12/2024",
-    link: "https://www.zonit.com/",
+    link: "https://www.linkedin.com/company/zonitsolutions/posts/?feedView=all",
     id: "w1",
   },
 ];
