@@ -1,0 +1,217 @@
+---
+title: Finally learning Neovim
+date: 2026-04-13
+tags: [guide, neovim]
+---
+
+## Switching to the dark side
+
+After going on and off about fully committing to a Vim setup, I am going all-in and committing myself to learning Neovim. I chose Neovim due to its community support as well as its plethora of plugins which I will be taking full advantage of. I hope to use this setup to replace all the editors I have tried and failed to commit to. Unfortunately, as someone who uses a lot of JupyterLab, Neovim falls short with the compatibility, so I just use VSCodium to cope with the lack of Jupyter support.
+
+## Beginning the journey
+
+The one really hard part about starting Neovim, is there's so much out there. It's been so hard to start to use Neovim because I get stuck in unfortunate analysis paralysis and I can't choose what plugins to use, what themes to install, and then I never end up using it because it's just all so overwhelming. Then part of me stops using it, because "it's too nerdy to use and why would I even be concerned with 'optimizing' my workflow?" But, I really want to learn! So, I did.
+
+## Init(ial) setup
+
+I didn't know where to start, so I started as any good developer would: reading documentation. So much documentation... I tried LazyVim in the past, but I got lost in trying to set it up, and I preferred to build it myself. Luckily the [creator of LazyVim](https://github.com/folke) created `lazy.vim`, a modern plugin manager for Neovim. Because I am very nitpicky about how I organize my files, I went for the structured setup configuration which required two files:
+
+`~/.config/nvim/init.lua`
+
+```lua
+require("config.lazy")
+```
+
+`~/.config/nvim/lua/config/lazy.lua`
+
+```lua
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+    -- import your plugins
+    { import = "plugins" },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "tokyonight" } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+  rocks = { enabled = false },
+})
+```
+
+Before I tried to set up plugins and everything else, I laid out a good file structure to keep everything neat and organized. The file structure ended up looking like this:
+
+```text
+.
+└── nvim/
+    ├── lua/
+    │   ├── config/
+    │   │   ├── keymap.lua
+    │   │   ├── lazy.lua
+    │   │   └── options.lua
+    │   └── plugins/
+    │       ├── just
+    │       ├── a
+    │       ├── lot
+    │       ├── of
+    │       ├── plugins
+    │       ├── ...
+    │       └── init.lua
+    ├── init.lua
+    └── lazy-lock.json
+```
+
+### Keymaps
+
+I knew that the one thing that I really wanted to get out of using Neovim was finding ways to never use my trackpad/mouse. I always loved the idea of keymaps and keybinds, using only your keyboard to navigate the terminal, files, windows, and more. I am very over-zealous about a lot of things, but I wanted to take the setup slower, so I started out with only a few keybinds that I would find the most useful and ones that I would come back to all the time.
+
+Here is a preview of my keymaps that I use:
+
+```lua
+local opts = { noremap = true, silent = true }
+
+vim.g.mapleader = " "
+
+-- better window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts) -- left window
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts) -- up window
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts) -- down window
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts) -- right window
+
+-- resize with arrows when using multiple windows
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<c-down>", ":resize +2<cr>", opts)
+vim.keymap.set("n", "<c-right>", ":vertical resize -2<cr>", opts)
+vim.keymap.set("n", "<c-left>", ":vertical resize +2<cr>", opts)
+```
+
+I find these to be useful, because they have to do with window navigation, and introducing a smaller set of commands will make it easier for me to remember them instead of bombarding myself with too many and trying to memorize all the keybinds I want from the get-go.<Ref id="lazy" />
+
+<Aside id="lazy">
+Also, it makes my setup easier.
+</Aside>
+
+### Options
+
+This is pretty basic, but it's the file that sets defaults across Neovim. Again, there is very little customization because I want to get comfortable with a small amount of customization and introducing more amounts as I get more comfortable.
+
+Here are the options I have set for now:
+
+```lua
+-- line numbers
+vim.opt.relativenumber = true -- show relative line numbers
+vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+
+-- cliploard
+vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
+
+
+-- mouse
+vim.opt.mouse = "a" -- enable mouse mode
+
+-- language
+vim.opt.spelllang = { "en" }
+
+-- tabs & indentation
+vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+vim.opt.shiftwidth = 2 -- 2 spaces for indent width
+vim.opt.expandtab = true -- expand tab to spaces
+vim.opt.autoindent = true -- copy indent from current line when starting new one
+
+-- line wrapping
+vim.opt.wrap = false -- disable line wrapping
+
+-- search settings
+vim.opt.ignorecase = true -- ignore case when searching
+vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+
+-- cursor line
+vim.opt.cursorline = true -- highlight the current cursor line
+```
+
+### Plugins
+
+I think I have way too many plugins, but at the same time, I wanted to emulate code editors like Sublime Text, Atom, and VS Code. To do this, I used the following plugins:
+
+- [autopairs](https://github.com/windwp/nvim-autopairs) - autopairs brackets, quotes, etc.
+- [blink](https://github.com/saghen/blink.cmp) - typo resistance (because I make so many typing errors)
+- [bufferline](https://github.com/akinsho/bufferline.nvim) - show tabs in bufferline
+- [colorscheme](https://github.com/folke/tokyonight.nvim) - my own "plugin" for color scheme settings
+- [comment](https://github.com/numToStr/Comment.nvim) - shortcut for commenting lines
+- [conform](https://github.com/stevearc/conform.nvim) - formatting plugin
+- [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - shows git signs in buffer
+- [lsp](https://github.com/neovim/nvim-lspconfig) - language server protocols configuration (**not fully configured**)
+- [lualine](https://github.com/nvim-lualine/lualine.nvim) - status line
+- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - file explorer
+- [telescope](https://github.com/nvim-telescope/telescope.nvim) - fuzzy finder using ripgrep
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - tree sitter and syntax highlighting
+- [which-key](https://github.com/folke/which-key.nvim) - shows keybindings if you forget (I always do)
+
+Each of these files as its own configuration file so it can be extensible if needed.<Ref id="good-idea" />
+
+<Aside id="good-idea">
+This helps with not needing an explicit `init.lua` file in the plugins page as to not crowd it up with various plugin configuration.
+</Aside>
+
+For example, here is `autopairs.lua` config file:
+
+```lua
+return {
+	'windwp/nvim-autopairs',
+	event = "InsertEnter",
+	config = function()
+		require('nvim-autopairs').setup({})
+		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+		local cmp = require('cmp')
+		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+	end
+}
+```
+
+That's pretty much all there is to it, but if I wanted to add more, I don't need to make a file Do Everything.
+
+## Conclusion
+
+As someone who has just started their journey into Linux ricing and now Vim editor configuration, learning everything feels very intimidating and daunting. This setup is by no means perfect, nor is it complete at all, but it is a start, and starting anything and keeping up with it is challenging.
+
+### For the future...
+
+I will continue to polish this configuration, culling plugins, adding new ones, editing all my settings until I get it *just* right. Until then, I have to battle my own analysis paralysis and need for optimizing everything.
+
+Until then!
+
+---
+
+<FootRef>
+  I am by no means responsible for learning all of this. I have scoured the web to find setup guides, information, and other resources.
+  Below are some of the ones I found the most helpful.
+</FootRef>
+
+<RefLink href="https://www.vineeth.io/posts/neovim-setup#conclusion" children="Yet Another Neovim Setup Guide by Vineeth" />
+<RefLink href="https://github.com/VVoruganti/dotfiles" children="Vineeth's dotfiles" />
+<RefLink href="https://www.josean.com/posts/how-to-setup-neovim-2024" children="How to Setup Neovim by Josean" />
+<RefLink href="https://github.com/ThePrimeagen/init.lua/tree/master" children="ThePrimeagen's init.lua" />

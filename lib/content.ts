@@ -38,9 +38,11 @@ export function getAllContent(type: ContentType): ContentMeta[] {
           year: "numeric",
         }),
         tags: (data.tags as string[]) ?? [],
+        _rawDate: new Date(data.date).getTime(), // temporary sort key
       };
     })
-    .sort((a, b) => (a.date < b.date ? -1 : 1));
+    .sort((a, b) => b._rawDate - a._rawDate) // newest first
+    .map(({ _rawDate, ...rest }) => rest); // strip the temp field
 }
 
 export function getContentBySlug(type: ContentType, slug: string): ContentFull {

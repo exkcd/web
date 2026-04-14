@@ -7,6 +7,10 @@ import { AsideProvider } from "@/components/layout/aside-context";
 import { TooltipEmail } from "@/components/layout/tooltip-email";
 import { CustomLink } from "@/components/ui/custom-link";
 
+const Wrapper = ({ children }: { children: React.ReactNode }) => (
+  <AsideProvider>{children}</AsideProvider>
+);
+
 const Cover = ({
   src,
   alt,
@@ -77,8 +81,8 @@ const RefLink = ({ href, children }: { href: string; children: string }) => (
   </Link>
 );
 
-const Wrapper = ({ children }: { children: React.ReactNode }) => (
-  <AsideProvider>{children}</AsideProvider>
+const FootRef = ({ children }: { children: string }) => (
+  <div className="text-xs mb-4">{children}</div>
 );
 
 export const mdxComponents: MDXComponents = {
@@ -90,6 +94,7 @@ export const mdxComponents: MDXComponents = {
   Footnotes,
   TooltipEmail,
   RefLink,
+  FootRef,
   a: CustomLink,
   p: ({ children }: ComponentPropsWithoutRef<"p">) => (
     <p className="text-zinc-600 dark:text-zinc-400">{children}</p>
