@@ -107,4 +107,7 @@ export const mdxComponents: MDXComponents = {
   li: ({ children }: ComponentPropsWithoutRef<"li">) => (
     <li className="mb-2 text-zinc-600 dark:text-zinc-400">{children}</li>
   ),
+  hr: ({ children }: ComponentPropsWithoutRef<"br">) => (
+    <hr className="border-zinc-200 dark:border-zinc-700">{children}</hr>
+  ),
 };
