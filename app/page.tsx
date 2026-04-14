@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
 import { NAME, ROLE } from "@/data/info";
 import { mdxComponents } from "@/components/mdx-components";
 
@@ -14,7 +13,6 @@ export default async function Home() {
     <div>
       <Header title={NAME} description={ROLE} />
       <MDXRemote source={source} components={mdxComponents} />
-      <Footer />
     </div>
   );
 }

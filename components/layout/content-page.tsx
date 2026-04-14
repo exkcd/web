@@ -18,7 +18,7 @@ export async function ContentPage({ type, slug }: Props) {
   const toc = await getTableOfContents(post.content);
 
   return (
-    <div className="prose prose-gray dark:prose-invert prose-h1:text-lg prose-h1:font-medium prose-h2:text-base prose-h2:font-medium prose-h3:text-sm prose-h3:font-medium prose-strong:font-medium">
+    <div className="prose prose-gray dark:prose-invert prose-h1:text-base prose-h1:font-medium prose-h2:text-base prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium">
       <article>
         <Link href="/" className="no-underline">
           <div className="text-base mb-0 text-zinc-800 dark:text-zinc-300">

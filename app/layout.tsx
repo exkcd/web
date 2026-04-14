@@ -51,11 +51,11 @@ export default function RootLayout({
           defaultTheme="system"
         >
           <TooltipProvider>
-            <div className="relative font-(family-name:--font-inter-tight)">
-              <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col py-32 px-8">
+            <div className="relative flex min-h-screen flex-col font-(family-name:--font-inter-tight)">
+              <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col py-32 px-8">
                 {children}
-                <Footer />
               </main>
+              <Footer />
             </div>
           </TooltipProvider>
         </ThemeProvider>
