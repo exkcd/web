@@ -24,6 +24,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { NAME, ROLE } from "@/data/info";
+import { CustomLink } from "@/components/ui/custom-link";
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -53,15 +54,12 @@ function MagneticSocialLink({
 }) {
   return (
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
-      <Link
-        href={link}
-        className="group relative inline-flex shrink-0 items-center gap-px rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-        <ArrowUpRight size={15} />
-      </Link>
+      <CustomLink href={link}>
+        <div className="group relative inline-flex shrink-0 items-center gap-px rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700">
+          {children}
+          <ArrowUpRight size={15} />
+        </div>
+      </CustomLink>
     </Magnetic>
   );
 }
@@ -200,9 +198,11 @@ export default function Resume() {
         <h3 className="mb-3 text-lg font-medium">Tools</h3>
         <div className="flex items-center justify-start space-x-1 mb-5 flex-wrap">
           {TOOLS.map((skill) => (
-            <Badge variant={"outline"} key={skill}>
-              {skill}
-            </Badge>
+            <div key={skill}>
+              <Badge variant={"outline"} key={skill}>
+                {skill}
+              </Badge>
+            </div>
           ))}
         </div>
       </motion.section>
