@@ -54,13 +54,13 @@ export const PROJECTS: Project[] = [
   {
     name: "Predicting COVID-19 Risk",
     description: "Random forests and logistical regression",
-    link: "https://github.com/exkcd/csci-4622-final-project",
+    link: "https://github.com/rfhcs/csci-4622-final-project",
     id: "p1",
   },
   {
     name: "Othello",
     description: "Othello/Reversi using OOP design principles",
-    link: "https://github.com/exkcd/csci-4448-final-project",
+    link: "https://github.com/rfhcs/csci-4448-final-project",
     id: "p2",
   },
 ];
@@ -83,7 +83,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: "Github",
-    link: "https://github.com/exkcd",
+    link: "https://github.com/rfhcs",
   },
   {
     label: "LinkedIn",
