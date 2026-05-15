@@ -18,9 +18,7 @@ function LocalTime() {
   const formattedTime = React.useMemo<string>(() => {
     if (!mounted) return "";
 
-    const denverTime = new Date(
-      time.toLocaleString("en-US", { timeZone: "America/Denver" }),
-    );
+    const denverTime = new Date(time.toLocaleString("en-US", { timeZone: "America/Denver" }));
     const hours = denverTime.getHours().toString().padStart(2, "0");
     const minutes = denverTime.getMinutes().toString().padStart(2, "0");
     const seconds = denverTime.getSeconds().toString().padStart(2, "0");
@@ -30,9 +28,7 @@ function LocalTime() {
       timeZone: "America/Denver",
       timeZoneName: "shortOffset",
     });
-    const offsetString =
-      formatter.formatToParts(time).find((p) => p.type === "timeZoneName")
-        ?.value ?? ""; // e.g. "GMT-6" or "GMT-7"
+    const offsetString = formatter.formatToParts(time).find((p) => p.type === "timeZoneName")?.value ?? ""; // e.g. "GMT-6" or "GMT-7"
     const offset = offsetString.replace("GMT", "UTC"); // reformat to "UTC-6"
 
     return `it's ${hours}:${minutes}:${seconds} ${offset}`;
@@ -46,11 +42,7 @@ function LocalTime() {
 
   return (
     <button onClick={toggleFooter} className="text-zinc-600 dark:text-zinc-400">
-      {showTime ? (
-        <p className="font-mono">{formattedTime}</p>
-      ) : (
-        <p>© 2026 Rey Stone</p>
-      )}
+      {showTime ? <p className="font-mono">{formattedTime}</p> : <p>© 2026 Rey Stone</p>}
     </button>
   );
 }

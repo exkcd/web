@@ -18,6 +18,18 @@ html {
     font-size: 0.8rem;
 }
 
+pre {
+    background-color: var(--color-zinc-100);
+    color: var(--color-zinc-950);
+}
+
+.dark {
+    pre {
+        background-color: var(--color-zinc-900);
+        color: var(--color-zinc-50);
+    }
+}
+
 ul,
 li {
     padding: 0;
