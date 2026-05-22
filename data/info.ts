@@ -29,26 +29,9 @@ type Education = {
   id: string;
 };
 
-export const SKILLS = [
-  "Javascript/Typescript",
-  "Java",
-  "Python",
-  "C/C++",
-  "LaTex",
-  "SQL",
-];
+export const SKILLS = ["Javascript/Typescript", "Java", "Python", "C/C++", "LaTex", "SQL"];
 
-export const TOOLS = [
-  "React",
-  "Next.js",
-  "Pandas",
-  "Figma",
-  "Git",
-  "NumPy",
-  "scikit-learn",
-  "matplotlib",
-  "Docker",
-];
+export const TOOLS = ["React", "Next.js", "Pandas", "Figma", "Git", "NumPy", "scikit-learn", "matplotlib", "Docker"];
 
 export const PROJECTS: Project[] = [
   {
@@ -74,6 +57,14 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: "https://www.linkedin.com/company/zonitsolutions/posts/?feedView=all",
     id: "w1",
   },
+  {
+    company: "The mHealth Impact Lab",
+    title: "Software Engineer",
+    start: "05/2026",
+    end: "Present",
+    link: "https://coloradosph.cuanschutz.edu/research-and-practice/centers-programs/mhealth",
+    id: "w2",
+  },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -97,12 +88,7 @@ export const EDUCATION: Education[] = [
     degree: "B.A in Computer Science, Minor in Philosophy",
     start: "08/2023",
     end: "12/2025",
-    courses: [
-      "Object Oriented Analysis and Design",
-      "Machine Learning",
-      "Algorithms",
-      "Principles of Programming Languages",
-    ],
+    courses: ["Object Oriented Analysis and Design", "Machine Learning", "Algorithms", "Principles of Programming Languages"],
     gpa: "3.8",
     id: "ed1",
   },
